@@ -150,5 +150,11 @@ app.get('/', (req, res) => {
   `);
 });
 
+app.get('/ping', (req, res) => {
+  console.log("Ping received");
+  res.sendStatus(200);
+});
+
+
 const PORT = 5000;
 app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Server on port ${PORT}`));
