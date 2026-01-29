@@ -9,8 +9,18 @@ const Station = require('./model/station');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
-
+app.use(
+  cors({
+    origin: [
+      "https://rad-kitten-0bad06.netlify.app/", // preview build
+      "https://rad-kitten-0bad06.netlify.app/", // final domain
+      /\.netlify\.app$/,                // allow ALL Netlify previews
+      "http://localhost:5173",          // local dev
+      
+    ],
+    credentials: true,
+  })
+);
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/factory_db')
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ Mongo Error:', err));
