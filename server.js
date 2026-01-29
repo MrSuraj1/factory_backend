@@ -3,9 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const Event = require('./model/Event');
+const Event = require('./model/event');
 const Worker = require('./model/Worker');
-const Station = require('./model/Station');
+const Station = require('./model/station');
 
 const app = express();
 app.use(express.json());
